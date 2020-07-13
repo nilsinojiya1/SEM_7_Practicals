@@ -10,7 +10,9 @@ int main() {
     if (key>=26) {
         n = key / 26;
         new_key = key - (n * 26);
-        printf("\n New Key=%d", new_key);
+        //printf("\n New Key=%d", new_key);
+    } else {
+        new_key = key;
     }
 
     for(i=0; message[i] != '\0'; ++i) {
@@ -18,7 +20,6 @@ int main() {
 
         if(ch>= 'a' && ch<='z') {
             ch = ch + new_key;
-
             if(ch > 'z') {
                 ch = ch - 'z' + 'a' - 1;
                 //printf("%d", ch);
@@ -26,13 +27,12 @@ int main() {
             message[i] = ch;
         } else if (ch >= 'A' && ch <= 'Z') {
             ch = ch + new_key;
-
-            if(ch > 'z') {
+            if(ch > 'Z') {
                 ch = ch - 'Z' + 'A' -1;
             }
             message[i] = ch;
         }
     }
-    printf("Encrypted Message: %s", message);
+    printf("Encrypted Text message: %s", message);
     return 0;
 }
