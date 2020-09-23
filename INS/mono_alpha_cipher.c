@@ -19,8 +19,14 @@ int main() {
     }
 
     for(i=0; i<strlen(message); i++) {
-        index = message[i] - 97;
-        cipher[i] = c[index];
+            if(message[i]==' '){
+                cipher[i] = ' ';
+            }
+            else {
+                index = message[i] - 97;
+                cipher[i] = c[index];
+            }
+
     }
     printf("\n cipher message: %s", cipher);
 

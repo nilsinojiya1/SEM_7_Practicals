@@ -5,7 +5,7 @@
 */
 #include<stdio.h>
 int main() {
-    char message[100], ch;
+    unsigned char message[100], ch;
     int i, key, n, new_key;
 
     printf("Enter a Text Message:");
@@ -23,17 +23,18 @@ int main() {
     for(i=0; message[i] != '\0'; ++i) {
         ch = message[i];
 
-        if(ch>= 'a' && ch<='z') {
-            ch = ch + new_key;
-            if(ch > 'z') {
-                ch = ch - 'z' + 'a' - 1;
-                //printf("%d", ch);
-            }
-            message[i] = ch;
-        } else if (ch >= 'A' && ch <= 'Z') {
+        if (ch >= 'A' && ch <= 'Z') {
             ch = ch + new_key;
             if(ch > 'Z') {
-                ch = ch - 'Z' + 'A' -1;
+                ch = ch - 'Z' + 'A' - 1;
+            }
+            message[i] = ch;
+        } else if (ch >= 'a' && ch <= 'z') {
+            ch = ch + new_key;
+            //printf("hello");
+            if(ch > 'z') {
+                ch = ch - 'z' + 'a' - 1;
+                //printf("inside if");
             }
             message[i] = ch;
         }
